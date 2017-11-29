@@ -41,10 +41,14 @@ public class Main {
 
         //Récupération des données à partir des clés obtenues dans le fichier de configuration
         for (String str : lObj){
-            System.out.println(wikidataAPI.getEntity(str));
+            //System.out.println(wikidataAPI.getEntity(str));
         }
 
-        System.out.println(wikidataAPI.getProperty("Q90"));
+       System.out.println(wikidataAPI.getProperty("Q90"));
+
+        WikipediaAPI wikipediaAPI = new WikipediaAPI();
+
+        System.out.println(wikipediaAPI.searchEntity("paris"));
 
     }
 }

@@ -1,1 +1,1 @@
-Paris(Q90),Amsterdam(Q727),Berlin(Q64)
+Paris(Q90)

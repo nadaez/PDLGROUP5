@@ -6,8 +6,6 @@ import java.net.URLConnection;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.json.JSONObject;
-
 public class WikidataAPI implements WikiAPI{
 
     /**
@@ -17,10 +15,9 @@ public class WikidataAPI implements WikiAPI{
      * @throws IOException
      */
     @Override
-    public JSONObject searchEntity(String name) throws IOException {
+    public String searchEntity(String name) throws IOException {
         String url = "https://www.wikidata.org/w/api.php?action=wbsearchentities&search="+name+"&language=fr&format=json";
-        ///return search(url);
-        return null;
+        return search(url);
     }
 
     /**
@@ -30,10 +27,9 @@ public class WikidataAPI implements WikiAPI{
      * @throws IOException
      */
     @Override
-    public JSONObject getEntity(String id) throws IOException {
+    public String getEntity(String id) throws IOException {
         String url = "https://www.wikidata.org/w/api.php?action=wbgetclaims&entity="+id+"&format=json";
-        //return search(url);
-        return null;
+        return search(url);
     }
 
     public String search(String str) throws IOException {
