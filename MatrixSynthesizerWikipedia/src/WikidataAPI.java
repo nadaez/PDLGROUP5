@@ -108,5 +108,4 @@ public class WikidataAPI implements WikiAPI{
         return valeurs;
     }
 
-
 }
