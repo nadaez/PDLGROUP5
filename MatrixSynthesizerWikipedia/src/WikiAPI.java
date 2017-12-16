@@ -1,8 +1,11 @@
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 
 public interface WikiAPI {
 
-    public String searchEntity(String name) throws IOException;
+    public JSONObject searchEntity(String name) throws IOException , JSONException;
 
-    public String getEntity(String id) throws IOException;
+    public JSONObject getEntity(String id)  throws IOException , JSONException;
 }

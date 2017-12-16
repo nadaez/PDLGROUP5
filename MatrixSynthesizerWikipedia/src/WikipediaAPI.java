@@ -1,3 +1,4 @@
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -8,19 +9,19 @@ import java.net.URLConnection;
 
 public class WikipediaAPI implements WikiAPI {
     @Override
-    public String searchEntity(String name) throws IOException {
+    public JSONObject searchEntity(String name)  throws IOException , JSONException {
         String url = "https://en.wikipedia.org/w/api.php?action=query&list=prefixsearch&pssearch="+name+"&format=json";
 
         return search(url);
     }
 
     @Override
-    public String getEntity(String id) throws IOException {
+    public JSONObject getEntity(String id)  throws IOException , JSONException {
         String url = "https://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&rvsection=0&pageids="+id+"&format=json";
         return search(url);
     }
 
-    public String search(String str) throws IOException {
+    public JSONObject search(String str)  throws IOException , JSONException {
         StringBuilder content = new StringBuilder();
 
         String url = str;
@@ -37,6 +38,6 @@ public class WikipediaAPI implements WikiAPI {
         }
         bufferedReader.close();
 
-        return content.toString();
+        return new JSONObject(content.toString());
     }
 }

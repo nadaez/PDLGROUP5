@@ -44,7 +44,7 @@ public class Main {
             //System.out.println(wikidataAPI.getEntity(str));
         }
 
-       System.out.println(wikidataAPI.getProperty("Q90"));
+       System.out.println("GetPorperty : "+ wikidataAPI.getProperty("Q90"));
 
         WikipediaAPI wikipediaAPI = new WikipediaAPI();
 

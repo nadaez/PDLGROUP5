@@ -1,3 +1,6 @@
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,8 +18,9 @@ public class WikidataAPI implements WikiAPI{
      * @throws IOException
      */
     @Override
-    public String searchEntity(String name) throws IOException {
+    public JSONObject searchEntity(String name)  throws IOException , JSONException {
         String url = "https://www.wikidata.org/w/api.php?action=wbsearchentities&search="+name+"&language=fr&format=json";
+        System.out.println("Test : " + search(url));
         return search(url);
     }
 
@@ -27,12 +31,12 @@ public class WikidataAPI implements WikiAPI{
      * @throws IOException
      */
     @Override
-    public String getEntity(String id) throws IOException {
+    public JSONObject getEntity(String id)  throws IOException , JSONException {
         String url = "https://www.wikidata.org/w/api.php?action=wbgetclaims&entity="+id+"&format=json";
         return search(url);
     }
 
-    public String search(String str) throws IOException {
+    public JSONObject search(String str) throws IOException, JSONException {
         StringBuilder content = new StringBuilder();
 
         String url = str;
@@ -49,18 +53,18 @@ public class WikidataAPI implements WikiAPI{
         }
         bufferedReader.close();
 
-        return content.toString();
+        return new JSONObject(content.toString());
     }
 
-    public String getProperty(String pCode) throws IOException {
+    public String getProperty(String pCode)  throws IOException , JSONException {
         String url ="https://www.wikidata.org/w/api.php?action=wbgetentities&ids=" + pCode + "&props=labels&languages=en&format=json";
-        String res = search(url);
+        String res = search(url).toString();
         int begin = res.indexOf("\"value")+9;
         int end = res.indexOf("\"}");
         return res.substring(begin, end);
     }
 
-    public Set<String> getProperties(Set<String> pCodes) throws IOException {
+    public Set<String> getProperties(Set<String> pCodes)  throws IOException , JSONException {
         Set<String> valeurs = new HashSet<String>();
         for(String code : pCodes){
             valeurs.add(getProperty(code));
