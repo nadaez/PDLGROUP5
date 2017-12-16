@@ -38,17 +38,26 @@ public class Main {
         }
 
         //Récupération des données à partir des clés obtenues dans le fichier de configuration
+        String dataCsv ="";
         for (String str : lObj){
             //System.out.println(wikidataAPI.getEntity(str));
+            dataCsv += str +"\n";
         }
 
        System.out.println("GetPorperty : "+ wikidataAPI.getProperty("Q90"));
+        GestionnaireCSV gestionnaire = new GestionnaireCSV();
+        try{
+            gestionnaire.addHeader("text", "titre\n", dataCsv);
+            System.out.println("##################################################");
+            System.out.println("Génération du csv '" + "text .csv' OK");
+        } catch (Exception e){
+            System.out.println("\nErreur lors de la génération du CSV");
+        }
+        //WikipediaAPI wikipediaAPI = new WikipediaAPI();
 
-        WikipediaAPI wikipediaAPI = new WikipediaAPI();
-
-        System.out.println("WIKIPEDIA !! ");
-        System.out.println(wikipediaAPI.searchEntity("paris"));
-        System.out.println(wikipediaAPI.getEntity("Paris"));
+        //System.out.println("WIKIPEDIA !! ");
+        //System.out.println(wikipediaAPI.searchEntity("paris"));
+        //System.out.println(wikipediaAPI.getEntity("Paris"));
 
     }
 }
