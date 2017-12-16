@@ -24,7 +24,7 @@ public class Main {
             BufferedReader buff = new BufferedReader(lecture);
             String ligne;
             while ((ligne=buff.readLine())!=null){
-                System.out.println(ligne);
+                //System.out.println(ligne);
                 temp = ligne.split(delimiter);
                 for(int i =0; i < temp.length ; i++){
                     int p1 = temp[i].indexOf('(');
@@ -34,7 +34,7 @@ public class Main {
             }
             buff.close();
         }	catch (Exception e) {
-            System.out.println(e.toString());
+            //System.out.println(e.toString());
         }
 
         //Récupération des données à partir des clés obtenues dans le fichier de configuration
@@ -42,13 +42,18 @@ public class Main {
             //System.out.println(wikidataAPI.getEntity(str));
         }
 
-       System.out.println("GetPorperty : "+ wikidataAPI.getProperty("Q90"));
+       //System.out.println("GetPorperty : "+ wikidataAPI.getProperty("Q90"));
 
         WikipediaAPI wikipediaAPI = new WikipediaAPI();
 
-        System.out.println("WIKIPEDIA !! ");
-        System.out.println(wikipediaAPI.searchEntity("paris"));
-        System.out.println(wikipediaAPI.getEntity("Paris"));
+       // System.out.println(wikidataAPI.getDescription("P150"));
+        //System.out.println(wikidataAPI.getDescription("Q161741"));
+        wikidataAPI.getTableProp(wikidataAPI.getEntity("Q90"));
+
+
+       // System.out.println("WIKIPEDIA !! ");
+       // System.out.println(wikipediaAPI.searchEntity("paris"));
+       // System.out.println(wikipediaAPI.getEntity("Paris"));
 
     }
 }

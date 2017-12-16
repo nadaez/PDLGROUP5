@@ -32,7 +32,7 @@ public class WikipediaAPI implements WikiAPI {
         String line;
         while ((line = bufferedReader.readLine()) != null)
         {
-            System.out.println(line);
+            //System.out.println(line);
             content.append(line + "\n");
 
         }
