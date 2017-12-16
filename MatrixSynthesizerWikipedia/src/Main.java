@@ -2,9 +2,7 @@ import org.json.JSONException;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class Main {
 
@@ -48,7 +46,9 @@ public class Main {
 
         WikipediaAPI wikipediaAPI = new WikipediaAPI();
 
+        System.out.println("WIKIPEDIA !! ");
         System.out.println(wikipediaAPI.searchEntity("paris"));
+        System.out.println(wikipediaAPI.getEntity("Paris"));
 
     }
 }

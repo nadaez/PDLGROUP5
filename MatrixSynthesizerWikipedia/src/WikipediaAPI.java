@@ -17,7 +17,7 @@ public class WikipediaAPI implements WikiAPI {
 
     @Override
     public JSONObject getEntity(String id)  throws IOException , JSONException {
-        String url = "https://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&rvsection=0&pageids="+id+"&format=json";
+        String url = "https://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&rvsection=0&titles="+id+"&format=json";
         return search(url);
     }
 
