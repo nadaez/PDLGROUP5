@@ -1,1 +1,1 @@
-Paris(Q90),Rome(Q50)
+Pomme(Q89),Kiwi(Q13194)

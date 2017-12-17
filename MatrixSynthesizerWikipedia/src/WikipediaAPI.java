@@ -45,23 +45,32 @@ public class WikipediaAPI implements WikiAPI {
         return new JSONObject(content.toString());
     }
 
-    public Map<String,String> search(JSONObject obj){
+    public Map<String,String> search(String name , JSONObject obj){
         String str = obj.toString();
-        int indexDébut = str.indexOf("Infobox");
+        int indexDébut = str.indexOf("box");
         int indexFin;
-        int indexMilieu;
+        int indexMilieu = 0 ;
         String scle,svaleur = "";
         Map<String,String> map = new LinkedHashMap<>();
-        System.out.println("Fin "+ str.indexOf("\\n}}\\n\\n"));
+        name = name.toString().replace("_"," ");
+        System.out.println("'''" + name + "'''");
+        System.out.println("Fin "+ str.indexOf("'''" + name));
 
-        while(indexDébut != -1 && indexDébut<str.indexOf("\\n}}\\n\\n")) {
+        while(indexDébut != -1 && indexDébut<str.indexOf("'''" + name) && indexMilieu<str.indexOf("'''" + name)) {
             indexDébut = str.indexOf("|" , indexDébut);
             indexMilieu = str.indexOf("=",indexDébut);
             indexFin = str.indexOf("\\n",indexDébut);
+            System.out.println("*************************");
             scle = str.substring(indexDébut+1,indexMilieu);
             svaleur = str.substring(indexMilieu+1,indexFin);
+            System.out.println("clé : " + scle);
+            System.out.println("valeur : " + svaleur);
             map.put(scle,svaleur);
             indexDébut = indexFin ;
+            System.out.println("index : " + indexDébut);
+            indexDébut = str.indexOf("|" , indexDébut);
+            indexMilieu = str.indexOf("=",indexDébut);
+            System.out.println("index2 : " + indexDébut);
         }
 
         return map;
