@@ -16,7 +16,7 @@ the language main practice, etc.
 
 #Architecture :
 
-User -> WikipediaAPI/WikidataAPI -> JSON -> CSV MAtrix -> OpenCompare -> Matrix Display
+User -> Group5.WikipediaAPI/Group5.WikidataAPI -> JSON -> CSV MAtrix -> OpenCompare -> Matrix Display
 
 #Deployment Environment Requirements :
 – Java => 1.8

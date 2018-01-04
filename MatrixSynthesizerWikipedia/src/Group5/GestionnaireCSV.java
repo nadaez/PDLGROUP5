@@ -1,8 +1,10 @@
+package Group5;
+
 import java.io.FileWriter;
 import java.io.IOException;
 
 /**
- * Classe GestionnaireCSV
+ * Classe Group5.GestionnaireCSV
  * Cette classe permet d'effectuer la gestion des fichiers CSV
  */
 public class GestionnaireCSV {
